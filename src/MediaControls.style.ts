@@ -33,17 +33,14 @@ export default StyleSheet.create({
   },
   playButton: {
     alignItems: "center",
-    borderColor: playButtonBorderColor,
-    borderRadius: 3,
-    borderWidth: 1.5,
     height: 50,
     justifyContent: "center",
     width: 50,
   },
   playIcon: {
-    height: 22,
+    height: 26,
     resizeMode: "contain",
-    width: 22,
+    width: 26,
   },
   progressColumnContainer: {
     flex: 1,
