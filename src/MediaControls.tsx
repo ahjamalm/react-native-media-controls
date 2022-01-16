@@ -75,7 +75,7 @@ const MediaControls = (props: Props) => {
   }, []);
   
   useEffect(() => {
-    let timeout;
+    let timeout = 0;
     if (!isVisible){
       setIsVisible(true);
       Animated.timing(opacity, {
