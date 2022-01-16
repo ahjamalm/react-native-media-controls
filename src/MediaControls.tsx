@@ -75,7 +75,14 @@ const MediaControls = (props: Props) => {
   }, []);
   
   useEffect(() => {
-    forceShow();
+    setIsVisible(true);
+    let timeout = setTimeout(() => {
+      fadeOutControls()
+    }, 1000);
+    return ()=>{
+      clearTimeout(timeout)
+      
+    }
   }, [toggleView]);
   
   const fadeOutControls = (delay = 0) => {
@@ -142,11 +149,6 @@ const MediaControls = (props: Props) => {
       setIsVisible(!!value);
       return value ? fadeOutControls() : fadeInControls();
     });
-  };
-  
-   const forceShow = () => { 
-        setIsVisible(true);
-        return fadeOutControls();
   };
 
   return (
