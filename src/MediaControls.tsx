@@ -30,6 +30,8 @@ export type Props = {
   showOnStart?: boolean;
   sliderStyle?: CustomSliderStyle;
   toolbarStyle?: ViewStyle;
+  toggleView?: number;
+
 };
 
 const MediaControls = (props: Props) => {
@@ -45,6 +47,7 @@ const MediaControls = (props: Props) => {
     onSeek,
     onSeeking,
     playerState,
+    toggleView,
     progress,
     showOnStart = true,
     sliderStyle, // defaults are applied in Slider.tsx
@@ -70,7 +73,11 @@ const MediaControls = (props: Props) => {
   useEffect(() => {
     fadeOutControls(fadeOutDelay);
   }, []);
-
+  
+  useEffect(() => {
+    toggleControls();
+  }, [toggleView]);
+  
   const fadeOutControls = (delay = 0) => {
     Animated.timing(opacity, {
       toValue: 0,
