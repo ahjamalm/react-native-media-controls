@@ -145,10 +145,8 @@ const MediaControls = (props: Props) => {
   };
   
    const forceShow = () => { 
-    opacity.stopAnimation(()=> {
-           setIsVisible(true);
-           return fadeInControls()
-    });
+        setIsVisible(true);
+        return fadeOutControls();
   };
 
   return (
