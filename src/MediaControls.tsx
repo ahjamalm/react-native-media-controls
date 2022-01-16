@@ -134,7 +134,7 @@ const MediaControls = (props: Props) => {
     return onPaused(newPlayerState);
   };
 
-  const toggleControls = (show) => {
+  const toggleControls = (show = false) => {
     // value is the last value of the animation when stop animation was called.
     // As this is an opacity effect, I (Charlie) used the value (0 or 1) as a boolean
  
