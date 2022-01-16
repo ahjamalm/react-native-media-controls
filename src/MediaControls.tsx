@@ -75,8 +75,7 @@ const MediaControls = (props: Props) => {
   }, []);
   
   useEffect(() => {
-    let timeout = setTimeout(() => {}, 1000);
-    if (!isVisible){
+  
       setIsVisible(true);
       Animated.timing(opacity, {
       toValue: 1,
@@ -84,10 +83,10 @@ const MediaControls = (props: Props) => {
       delay: 0,
       useNativeDriver: false,
       }).start()
-      timeout = setTimeout(() => {
+      let timeout = setTimeout(() => {
          fadeOutControls();
       }, fadeOutDelay);
-    }
+    
   
     return ()=>{
       clearTimeout(timeout)
