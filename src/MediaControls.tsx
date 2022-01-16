@@ -75,13 +75,22 @@ const MediaControls = (props: Props) => {
   }, []);
   
   useEffect(() => {
-    setIsVisible(true);
-    let timeout = setTimeout(() => {
-      fadeOutControls()
-    }, 1000);
+    let timeout;
+    if (!isVisible){
+      setIsVisible(true);
+      Animated.timing(opacity, {
+      toValue: 1,
+      duration: 0,
+      delay: 0,
+      useNativeDriver: false,
+      }).start()
+      timeout = setTimeout(() => {
+         fadeOutControls();
+      }, fadeOutDelay);
+    }
+  
     return ()=>{
       clearTimeout(timeout)
-      
     }
   }, [toggleView]);
   
