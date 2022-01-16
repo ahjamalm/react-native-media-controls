@@ -75,7 +75,7 @@ const MediaControls = (props: Props) => {
   }, []);
   
   useEffect(() => {
-    toggleControls(true);
+    forceShow();
   }, [toggleView]);
   
   const fadeOutControls = (delay = 0) => {
@@ -134,17 +134,20 @@ const MediaControls = (props: Props) => {
     return onPaused(newPlayerState);
   };
 
-  const toggleControls = (show = false) => {
+  const toggleControls = () => {
     // value is the last value of the animation when stop animation was called.
     // As this is an opacity effect, I (Charlie) used the value (0 or 1) as a boolean
  
     opacity.stopAnimation((value: number) => {
-         if (show){
-           setIsVisible(true);
-           return fadeInControls()
-         }
       setIsVisible(!!value);
       return value ? fadeOutControls() : fadeInControls();
+    });
+  };
+  
+   const forceShow = () => { 
+    opacity.stopAnimation((value: number) => {
+           setIsVisible(true);
+           return fadeInControls()
     });
   };
 
