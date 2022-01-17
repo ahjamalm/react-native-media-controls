@@ -31,8 +31,6 @@ export type Props = {
   sliderStyle?: CustomSliderStyle;
   toolbarStyle?: ViewStyle;
   toggleView?: number;
-  btnRef?:null;
-
 };
 
 const MediaControls = (props: Props) => {
@@ -53,9 +51,7 @@ const MediaControls = (props: Props) => {
     showOnStart = true,
     sliderStyle, // defaults are applied in Slider.tsx
     toolbarStyle: customToolbarStyle = {},
-    btnRef
   } = props;
-  btnRef = useRef(null);
   const { initialOpacity, initialIsVisible } = (() => {
     if (showOnStart) {
       return {
@@ -184,7 +180,6 @@ const MediaControls = (props: Props) => {
               isLoading={isLoading}
               mainColor={mainColor}
               playerState={playerState}
-              btnRef={btnRef}
             />
             <Slider
               progress={progress}
