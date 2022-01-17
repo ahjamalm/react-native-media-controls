@@ -13,7 +13,7 @@ type ControlsProps = Pick<
 };
 
 const Controls = (props: ControlsProps) => {
-  const { isLoading, playerState, onReplay, onPause } = props;
+  const { isLoading, playerState, onReplay, onPause ,btnRef} = props;
   const icon = getPlayerStateIcon(playerState);
   const pressAction = playerState === PLAYER_STATES.ENDED ? onReplay : onPause;
 
@@ -21,6 +21,7 @@ const Controls = (props: ControlsProps) => {
     <ActivityIndicator size="large" color="#FFF" />
   ) : (
     <TouchableOpacity
+      ref={btnRef}
       style={[styles.playButton]}
       onPress={pressAction}
       accessibilityLabel={PLAYER_STATES.PAUSED ? "Tap to Play" : "Tap to Pause"}
