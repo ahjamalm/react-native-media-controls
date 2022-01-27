@@ -176,6 +176,8 @@ const MediaControls = (props: Props) => {
             </View>
             <Controls
               onPause={onPause}
+              onSeek={onSeek}
+              progress={progress}
               onReplay={onReplay}
               isLoading={isLoading}
               mainColor={mainColor}
