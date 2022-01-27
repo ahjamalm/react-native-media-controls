@@ -21,6 +21,7 @@ export default StyleSheet.create({
   controlsRow: {
     alignItems: "center",
     alignSelf: "stretch",
+    flexDirection: "row",
     flex: 1,
     justifyContent: "space-between",
   },
