@@ -22,10 +22,8 @@ const Controls = (props: ControlsProps) => {
   ) : (
     <>
     <TouchableOpacity
-      style={[styles.playButton]}
+      style={[{...styles.playButton,padding:30,height:100,width:100}]}
       onPress={pressAction}
-      accessibilityLabel={PLAYER_STATES.PAUSED ? "Tap to Play" : "Tap to Pause"}
-      accessibilityHint={"Plays and Pauses the Video"}
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
@@ -40,10 +38,8 @@ const Controls = (props: ControlsProps) => {
     </TouchableOpacity>
     
     <TouchableOpacity
-      style={[styles.playButton]}
+      style={[{...styles.playButton,padding:30,height:100,width:100}]}
       onPress={pressAction}
-      accessibilityLabel={PLAYER_STATES.PAUSED ? "Tap to Play" : "Tap to Pause"}
-      accessibilityHint={"Plays and Pauses the Video"}
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
