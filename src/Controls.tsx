@@ -20,6 +20,7 @@ const Controls = (props: ControlsProps) => {
   const content = isLoading ? (
     <ActivityIndicator size="large" color="#FFF" />
   ) : (
+    <>
     <TouchableOpacity
       style={[styles.playButton]}
       onPress={pressAction}
@@ -28,6 +29,25 @@ const Controls = (props: ControlsProps) => {
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
+    
+    <TouchableOpacity
+      style={[styles.playButton]}
+      onPress={pressAction}
+      accessibilityLabel={PLAYER_STATES.PAUSED ? "Tap to Play" : "Tap to Pause"}
+      accessibilityHint={"Plays and Pauses the Video"}
+    >
+      <Image source={icon} style={styles.playIcon} />
+    </TouchableOpacity>
+    
+    <TouchableOpacity
+      style={[styles.playButton]}
+      onPress={pressAction}
+      accessibilityLabel={PLAYER_STATES.PAUSED ? "Tap to Play" : "Tap to Pause"}
+      accessibilityHint={"Plays and Pauses the Video"}
+    >
+      <Image source={icon} style={styles.playIcon} />
+    </TouchableOpacity>
+      </>
   );
 
   return <View style={[styles.controlsRow]}>{content}</View>;
