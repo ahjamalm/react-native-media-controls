@@ -50,7 +50,7 @@ const Controls = (props: ControlsProps) => {
       </>
   );
 
-  return <View style={[styles.controlsRow]}>{content}</View>;
+  return <View style={[{...styles.controlsRow ,justifyContent:isLoading ? 'center' : 'space-between' }]}>{content}</View>;
 };
 
 export { Controls };
