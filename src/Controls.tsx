@@ -13,7 +13,7 @@ type ControlsProps = Pick<
 };
 
 const Controls = (props: ControlsProps) => {
-  const { isLoading, playerState, onReplay, onPause ,onSeek,progress} = props;
+  const { isLoading, playerState, onReplay, onPause ,progress} = props;
   const icon = getPlayerStateIcon(playerState);
   const pressAction = playerState === PLAYER_STATES.ENDED ? onReplay : onPause;
 
