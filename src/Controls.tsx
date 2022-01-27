@@ -13,7 +13,7 @@ type ControlsProps = Pick<
 };
 
 const Controls = (props: ControlsProps) => {
-  const { isLoading, playerState, onReplay, onPause } = props;
+  const { isLoading, playerState, onReplay, onPause ,onSeek,progress} = props;
   const icon = getPlayerStateIcon(playerState);
   const pressAction = playerState === PLAYER_STATES.ENDED ? onReplay : onPause;
 
@@ -22,8 +22,8 @@ const Controls = (props: ControlsProps) => {
   ) : (
     <>
     <TouchableOpacity
-      style={[{...styles.playButton,padding:30,height:100,width:200}]}
-      onPress={pressAction}
+      style={[{...styles.playButton,padding:30,height:100,width:400}]}
+      onPress={()=>onSeek(progress+15)}
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
@@ -38,8 +38,8 @@ const Controls = (props: ControlsProps) => {
     </TouchableOpacity>
     
     <TouchableOpacity
-      style={[{...styles.playButton,padding:30,height:100,width:200}]}
-      onPress={pressAction}
+      style={[{...styles.playButton,padding:30,height:100,width:400}]}
+      onPress={()=>onSeek(progress-15)}
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
