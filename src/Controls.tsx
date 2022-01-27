@@ -22,7 +22,7 @@ const Controls = (props: ControlsProps) => {
   ) : (
     <>
     <TouchableOpacity
-      style={[{...styles.playButton,padding:30,height:100,width:100}]}
+      style={[{...styles.playButton,padding:30,height:100,width:200}]}
       onPress={pressAction}
     >
       <Image source={icon} style={styles.playIcon} />
@@ -38,7 +38,7 @@ const Controls = (props: ControlsProps) => {
     </TouchableOpacity>
     
     <TouchableOpacity
-      style={[{...styles.playButton,padding:30,height:100,width:100}]}
+      style={[{...styles.playButton,padding:30,height:100,width:200}]}
       onPress={pressAction}
     >
       <Image source={icon} style={styles.playIcon} />
@@ -46,7 +46,7 @@ const Controls = (props: ControlsProps) => {
       </>
   );
 
-  return <View style={[{...styles.controlsRow ,justifyContent:isLoading ? 'center' : 'space-between' }]}>{content}</View>;
+  return <View style={[{...styles.controlsRow ,justifyContent:isLoading ? 'center' : 'center' }]}>{content}</View>;
 };
 
 export { Controls };
