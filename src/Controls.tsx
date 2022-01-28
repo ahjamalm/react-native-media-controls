@@ -23,7 +23,7 @@ const Controls = (props: ControlsProps) => {
     <>
     <TouchableOpacity
       style={[{...styles.playButton,padding:30,height:100,width:400}]}
-      onPress={()=>onSeek(progress+15)}
+      onPress={()=>onSeek(progress-15)}
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
@@ -39,7 +39,7 @@ const Controls = (props: ControlsProps) => {
     
     <TouchableOpacity
       style={[{...styles.playButton,padding:30,height:100,width:400}]}
-      onPress={()=>onSeek(progress-15)}
+      onPress={()=>onSeek(progress+15)}
     >
       <Image source={icon} style={styles.playIcon} />
     </TouchableOpacity>
