@@ -25,7 +25,7 @@ const Controls = (props: ControlsProps) => {
       style={[{...styles.playButton,padding:30,height:100,width:400}]}
       onPress={()=>onSeek(progress-15)}
     >
-      <Image source={icon} style={styles.playIcon} />
+      <Image source={require('./assets/backward.png')} style={styles.playIcon} />
     </TouchableOpacity>
     
     <TouchableOpacity
@@ -41,7 +41,7 @@ const Controls = (props: ControlsProps) => {
       style={[{...styles.playButton,padding:30,height:100,width:400}]}
       onPress={()=>onSeek(progress+15)}
     >
-      <Image source={icon} style={styles.playIcon} />
+      <Image source={require('./assets/forward.png')} style={styles.playIcon} />
     </TouchableOpacity>
       </>
   );
