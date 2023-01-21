@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Animated,
-  TouchableWithoutFeedback,
   GestureResponderEvent,
   ViewStyle,
+  Pressable
 } from "react-native";
 import styles from "./MediaControls.style";
 import { PLAYER_STATES } from "./constants/playerStates";
@@ -159,7 +159,7 @@ const MediaControls = (props: Props) => {
   };
 
   return (
-    <TouchableWithoutFeedback accessible={false} onPress={toggleControls}>
+    <Pressable accessible={false} onPress={toggleControls}>
       <Animated.View
         style={[styles.container, customContainerStyle, { opacity }]}
       >
@@ -198,7 +198,7 @@ const MediaControls = (props: Props) => {
         )}
       </Animated.View>
       
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
 };
 
