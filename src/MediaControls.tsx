@@ -4,7 +4,7 @@ import {
   Animated,
   GestureResponderEvent,
   ViewStyle,
-  Pressable
+  TouchableWithoutFeedback
 } from "react-native";
 import styles from "./MediaControls.style";
 import { PLAYER_STATES } from "./constants/playerStates";
@@ -72,26 +72,26 @@ const MediaControls = (props: Props) => {
   useEffect(() => {
     fadeOutControls(fadeOutDelay);
   }, []);
-  
+
   useEffect(() => {
-  
-      setIsVisible(true);
-      Animated.timing(opacity, {
+
+    setIsVisible(true);
+    Animated.timing(opacity, {
       toValue: 1,
       duration: 0,
       delay: 0,
       useNativeDriver: false,
-      }).start()
-      let timeout = setTimeout(() => {
-         fadeOutControls();
-      }, fadeOutDelay);
-    
-  
-    return ()=>{
+    }).start()
+    let timeout = setTimeout(() => {
+      fadeOutControls();
+    }, fadeOutDelay);
+
+
+    return () => {
       clearTimeout(timeout)
     }
   }, [toggleView]);
-  
+
   const fadeOutControls = (delay = 0) => {
     Animated.timing(opacity, {
       toValue: 0,
@@ -151,7 +151,7 @@ const MediaControls = (props: Props) => {
   const toggleControls = () => {
     // value is the last value of the animation when stop animation was called.
     // As this is an opacity effect, I (Charlie) used the value (0 or 1) as a boolean
- 
+
     opacity.stopAnimation((value: number) => {
       setIsVisible(!!value);
       return value ? fadeOutControls() : fadeInControls();
@@ -159,7 +159,7 @@ const MediaControls = (props: Props) => {
   };
 
   return (
-    <Pressable accessible={false} onPress={toggleControls}>
+    <TouchableWithoutFeedback accessible={false} onPress={toggleControls}>
       <Animated.View
         style={[styles.container, customContainerStyle, { opacity }]}
       >
@@ -197,8 +197,8 @@ const MediaControls = (props: Props) => {
           </View>
         )}
       </Animated.View>
-      
-    </Pressable>
+
+    </TouchableWithoutFeedback>
   );
 };
 
