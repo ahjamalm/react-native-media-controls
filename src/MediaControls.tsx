@@ -197,6 +197,7 @@ const MediaControls = (props: Props) => {
           </View>
         )}
       </Animated.View>
+      
     </TouchableWithoutFeedback>
   );
 };
